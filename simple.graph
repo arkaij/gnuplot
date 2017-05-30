@@ -1,0 +1,22 @@
+#!/usr/bin/gnuplot -persist
+unset key
+set terminal postscript enhanced 
+set xlabel "Uc"
+set ylabel "Uз"
+set yrange [108:120]
+#set size 2,0.8
+set terminal postscript eps enhanced
+set encoding koi8r
+set output "SCT.ps"
+set style line 1 lt 1 pt 7
+
+#set xtics 0.2
+#set ytics 0.1
+#set mxtics 2
+
+set multiplot
+set grid xtics ytics mxtics
+plot "puskchar" using 1:2  w linespoints lw 2 pt 7 
+#plot "puskchar" using 1:2   smooth csplines -- гладкая кривая
+plot "puskchar" using 1:2   smooth bezier 
+
